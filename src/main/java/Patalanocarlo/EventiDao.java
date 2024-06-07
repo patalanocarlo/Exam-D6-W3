@@ -32,7 +32,7 @@ public class EventiDao {
         }
     }
 
-    //Ricerca di un libro in base al suo isb:
+    //Ricerca di un libro in base al suo isbn:
     public Libro ricercaPerISBN(String isbn) {
         return entityManager.find(Libro.class, isbn);
     }

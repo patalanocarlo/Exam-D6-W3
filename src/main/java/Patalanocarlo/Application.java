@@ -75,7 +75,7 @@ public class Application {
 
         //Tessera da ricercare +aggiunta di un nuovo utente che abbia la tessera :
 
-        User nuovoUtente = new User();
+        User nuovoUtente = new User(); //Creo un nuovo user che ha i seguenti attributi :
         nuovoUtente.setFirstName("Carlo");
         nuovoUtente.setLastName("Patalano");
         nuovoUtente.setBirthDate(LocalDate.of(1990, 5, 15));
@@ -87,12 +87,12 @@ public class Application {
         entityManager.getTransaction().commit();
 
 // Creazione di un prestito per un libro associato all'utente
-        LibraryItem libroInPrestito = nuovoLibro; // Ottieni il libro che desideri associare al prestito
+        LibraryItem libroInPrestito = nuovoLibro; //Mi prendo il libro che viene creato
         Loan prestito = new Loan();
         prestito.setUser(nuovoUtente);
         prestito.setItem(libroInPrestito);
-        prestito.setLoanStartDate(LocalDate.now()); // Imposta la data di inizio prestito
-        prestito.setActualReturnDate(LocalDate.now().plusDays(3)); // Il libro non è ancora stato restituito
+        prestito.setLoanStartDate(LocalDate.now());
+        prestito.setActualReturnDate(LocalDate.now().plusDays(3)); //data di quando verrà restituito
 
 // Salvataggio del prestito nel database
         entityManager.getTransaction().begin();
@@ -100,13 +100,13 @@ public class Application {
         entityManager.getTransaction().commit();
 
 // Ora puoi eseguire la ricerca dei prestiti per il numero di tessera
-        String numeroTesseraDaRicercare = "12";
+        String numeroTesseraDaRicercare = "12"; //In base alla tessera vado a prendermi i libri del user
         List<Loan> prestitiTrovati = eventiDao.ricercaPrestitiPerNumeroTessera(numeroTesseraDaRicercare);
 
 // Stampa dei prestiti trovati
-        if (!prestitiTrovati.isEmpty()) {
+        if (!prestitiTrovati.isEmpty()) { //se trovo qualcosa allora mi stampa la tessera
             System.out.println("Prestiti trovati per il numero di tessera " + numeroTesseraDaRicercare + ":");
-            for (Loan prestito_2 : prestitiTrovati) {
+            for (Loan prestito_2 : prestitiTrovati) { //per ogni tesseera associata ai prestiti mi stampa i libri presi in prestito
                 System.out.println(prestito_2);
             }
         } else {
