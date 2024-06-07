@@ -2,14 +2,12 @@ package Patalanocarlo;
 
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
+import jakarta.persistence.*;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
-public class LibraryItem {
-    @id
+public  abstract class LibraryItem {
+    @Id
     private String isbn;
     private String title;
     private int publicationYear;
