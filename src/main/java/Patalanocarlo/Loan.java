@@ -75,4 +75,13 @@ public class Loan {
     public void setActualReturnDate(LocalDate actualReturnDate) {
         this.actualReturnDate = actualReturnDate;
     }
+    @Override
+    public String toString() {
+        return "Prestito [ID=" + id +
+                ", Utente=" + user.getFirstName() + " " + user.getLastName() +
+                ", Elemento=" + item.getTitle() +
+                ", Data inizio prestito=" + loanStartDate +
+                ", Data restituzione prevista=" + expectedReturnDate +
+                ", Data restituzione effettiva=" + actualReturnDate + "]";
+    }
 }
