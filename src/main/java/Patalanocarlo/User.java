@@ -20,7 +20,7 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Loan> loans;
 
-
+//Mi passo tutti i setter e getter
     public Long getId() {
         return id;
     }

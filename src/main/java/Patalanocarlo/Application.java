@@ -13,7 +13,7 @@ public class Application {
 
         // Creazione di un nuovo libro e con la sua successiva aggiunta
         Libro nuovoLibro = new Libro();  //Mi vado a creare un nuovo Libro che sarà la base per tutti gli altri
-        nuovoLibro.setIsbn("9348t");
+        nuovoLibro.setIsbn("9348t532yere23hw342");
         nuovoLibro.setTitle("Sea lONLY Island");
         nuovoLibro.setAuthor("La landa deserta");
         nuovoLibro.setGenre("Commedy");
@@ -23,11 +23,11 @@ public class Application {
         eventiDao.aggiungiLibro(nuovoLibro); //Faccio riferimento al DAO a cui passo la aggiunta del libro al catalogo e andando nel database mi accorgo della sua aggiunta
 
        //Vado a rimuovere un elemento in base al isbn:
-        String isbnDaRimuovere = "51221323"; //Passo la rimozione come stringa
+        String isbnDaRimuovere = "133456323574352352"; //Passo la rimozione come stringa
         eventiDao.rimuoviElementoCatalogoPerISBN(isbnDaRimuovere);
 
         //Vado a cercare un libro speicifico:
-        String isbnDaRicercare = "133456323574352352"; //Passo il libro da cercare
+        String isbnDaRicercare = "9348t532"; //Passo il libro da cercare
         Libro libroTrovato = eventiDao.ricercaPerISBN(isbnDaRicercare);
         if (libroTrovato != null) { //Avvio un controllo if dove dico che se il libro trovato è diverso da null allora avro trovato un libro altrimenti non trovo il libro con quel id
             System.out.println("Libro trovato:");
